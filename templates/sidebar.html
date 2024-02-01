@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'sidebar.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <title>Sidebar</title>
+  </head>
+  <body>
+    
+    <div class="container-fluid">
+      <div class="row flex-nowrap">
+        <div class="bg-dark col-auto col-md-12 min-vh-100 d-flex flex-column justify-content-between">
+          <div class="bg-dark p-2">
+            <a
+              href=""
+              class="d-flex text-decoration-none align-items-center text-white"
+            >
+              <span class="fs-4 d-none d-sm-inline">Menu</span>
+            </a>
+            {% with request.resolver_match.url_name as urlname %}
+            <ul class="nav nav-pills flex-column mt-2">
+              <li class="nav-item">
+                <a href="{% url 'Dashboard' %}" class="nav-link text-white {% if urlname == 'Dashboard' %} active {% endif %}">
+                  <i class="fa-solid fa-gauge"></i>
+                  <span class="fs-5 ms-1 d-none d-sm-inline">Dashboard</span>
+                </a>
+              </li>
+              <li class="nav-item py-1 py-sm-0">
+                <a href="" class="nav-link text-white {% if urlname == 'sales' %}active{% endif %}">
+                  <i class="fa-solid fa-scale-balanced"></i>
+                  <span class="fs-5 ms-1 d-none d-sm-inline">Sale</span>
+                </a>
+              </li>
+              <li class="nav-item py-1 py-sm-0">
+                <a href="{% url 'customer' %}" class="nav-link text-white {% if urlname == 'customer' %} active {% endif %}">
+                  <i class="fa-solid fa-person-dress"></i>
+                  <span class="fs-5 ms-1 d-none d-sm-inline">Customers</span>
+                </a>
+              </li>
+              <li class="nav-item py-2 py-sm-0">
+                <a href="{% url 'products' %}" class="nav-link text-white {% if urlname == 'products' %} active {% endif %}">
+                  <i class="fa-brands fa-product-hunt"></i>
+                  <span class="fs-5 ms-1 d-none d-sm-inline">Products</span>
+                </a>
+              </li>
+              <li class="nav-item py-2 py-sm-0">
+                <a href="{% url 'suppliers' %}" class="nav-link text-white {% if urlname == 'suppliers' %} active {% endif %}" >
+                  <i class="fa-solid fa-truck-field"></i>
+                  <span class="fs-5 ms-1 d-none d-sm-inline">Suppliers</span>
+                </a>
+              </li>
+              <li class="nav-item py-2 py-sm-0">
+                <a href="" class="nav-link text-white">
+                  <i class="fa-solid fa-money-bill"></i>
+                  <span class="fs-5 ms-1 d-none d-sm-inline">Payments</span>
+                </a>
+              </li>
+              <li class="nav-item py-2 py-sm-0">
+                <a href="" class="nav-link text-white">
+                  <i class="fa-solid fa-cart-shopping"></i>
+                  <span class="fs-5 ms-1 d-none d-sm-inline">Orders</span>
+                </a>
+              </li>
+            </ul>
+            {% endwith %}
+          </div>
+          <div class="dropdown open p-3">
+            <button
+              class="btn border-none dropdown-toggle text-white"
+              type="button"
+              id="triggerId"
+              data-bs-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+               <i class="fa fa-user" aria-hidden="true"></i><span class="ms-2">User</span>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="triggerId">
+              <button class="dropdown-item" href="#">Profile</button>
+              <button class="dropdown-item" href="#">
+                Logout
+              </button>
+            </div>
+          </div>  
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://kit.fontawesome.com/1f54627332.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{% static 'sidebar.js' %}"></script>
+    
+  </body>
+</html>

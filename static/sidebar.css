@@ -1,0 +1,6 @@
+.nav-pills li a:hover{
+    background-color: lightblue;
+}
+.dropdown-menu button:hover{
+    background-color: lightblue;
+}
